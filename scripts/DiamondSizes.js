@@ -1,4 +1,4 @@
-import { getSizes } from "./database.js"
+import { getSizes, setSize } from "./database.js"
 
 const sizes = getSizes()
 
@@ -6,7 +6,8 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "size") {
-            window.alert(``)
+            //window.alert(`User chose size ${event.target.value}`)
+            setSize(parseInt(event.target.value))
         }
     }
 )
@@ -27,3 +28,12 @@ export const DiamondSizes = () => {
     return html
 }
 
+// const sizeMenu = `<ul class="choice--list size--list">
+// ${sizes.map( 
+//   (size) => ` li class="choice-list-item-size--list-item">
+//  <input type="radio" value="size--${size.id}" name="size"> ${size.circumference}-inch
+//    <div class="price">Price: $${size.price.toFixed(2)}</div>
+//    <?li>`).join("")
+//} </ul>`
+
+// return sizeMenu
